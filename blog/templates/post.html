@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+FLASK BLOG - {{ post.title }}
+{% endblock %}
+
+{% block body %}
+<div class="row float-right">
+    {% if session.get('logged_in') and (session.get('user_id')==post.author.id) %}
+    <a class="btn btn-info ml-2" href="{{ url_for('blog.get_update', post_id=post.id) }}" role="button" type="submit">수정</a>
+    <a class="btn btn-danger ml-2" href="{{ url_for('blog.delete', post_id=post.id) }}" role="button" type="submit">삭제</a>
+    {% endif %}
+    <a class="btn btn-secondary ml-2" href="{{ url_for('blog.index') }}" role="button">목록으로</a>
+</div>
+<div class="blog-post ml-4 mt-2 float-left">
+    <h2 class="blog-post-title">{{post.title}}</h2>
+    <p class="blog-post-meta">{{post.author.name}}</p>
+    <p>{{post.content}}</p>
+</div>
+<div class="clearfix"></div>
+{% endblock %}

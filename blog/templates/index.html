@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}FLASK 배우기{% endblock %}
+
+{% block body %}
+    {% for p in posts %}
+        <div class="blog-post ml-4 mt-4">
+            <h2 class="blog-post-title">
+                <a href="{{ url_for('blog.get_post',post_id=p.id) }}">{{p.title}}</a>
+            </h2>
+            <p class="blog-post-meta">{{p.author.name}}</p>
+            <p>{{p.content}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
+<!-- a href에도 jinja 코드 작동함 -->

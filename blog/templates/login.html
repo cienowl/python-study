@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+
+{% block body %}
+<div class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal">로그인</h1>
+</div>
+<div>
+    <form class="form-signin" action="{{ url_for('blog.login') }}" method="POST">
+        <label for="username"></label>
+        <input class="form-control" type="text" id="username" placeholder="Username" name="username" required autofocus/>
+        <label for="password"></label>
+        <input class="form-control" type="password" id="password" placeholder="Password" name="password"/>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-lg btn-primary btn-block">로그인</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
