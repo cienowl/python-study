@@ -1,2 +1,1 @@
-# blog
-Personal blog
+# python study
